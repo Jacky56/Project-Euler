@@ -2,9 +2,34 @@ package Question66
 
 object MainAppQuestion66 {
   def main(args: Array[String]): Unit = {
-    println(getSolution(13))
-
+    //println(getSolution(13))
+    println(solution(13))
   }
+
+
+
+  def solution (D : Int) : List[Double] = {
+    var x = 10d
+    var next_x = x
+    for ( i <- 1 to 100) {
+      val y = Math.pow(((x*x)-1)/D,0.5).floor
+      println(x,D,y)
+      if(check(x,D,y)) {
+        println("ye")
+        return List(x,D,y)
+      } else {
+        x = x + 0.01*df(x,D).floor
+      }
+
+
+    }
+    return List()
+  }
+
+  def check (x : Double, D : Int, y : Double) : Boolean = (x*x) - (D*y*y) == 1
+
+  def df(x : Double, D : Int) : Double = x*((x*x) - 1)/(D*D)
+  def df2(x : Double, D : Int) : Double = ((x*x) - 1)/(D*D)
 
   def getSolution(D: Int) : List[Long] = {
     var max_x = 10000
