@@ -26,6 +26,8 @@ object MainAppQuestion66 {
     return List()
   }
 
+  def funX (D : Int, y : Long) : Double = Math.pow(1 + D*y*y,0.5)
+
   def check (x : Double, D : Int, y : Double) : Boolean = (x*x) - (D*y*y) == 1
 
   def df(x : Double, D : Int) : Double = x*((x*x) - 1)/(D*D)
